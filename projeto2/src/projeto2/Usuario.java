@@ -6,9 +6,9 @@ package projeto2;
 
 /**
  *
- * @author ViniSilva
+ * @author rafaelcosta
  */
-public class Cadastro {
+public class Usuario {
     
     private String nome;
     private String cpf;
@@ -39,7 +39,7 @@ public class Cadastro {
         this.nome = nome;
     }
 
-    public Boolean equals( Cadastro cadastro ) {
+    public Boolean equals( Usuario cadastro ) {
 		if ( cadastro == this ) return true ;
 
 		return ( cadastro.getNome().equals( this.nome ) &&
@@ -48,3 +48,5 @@ public class Cadastro {
 	}
     
 }
+    
+

@@ -8,6 +8,6 @@ package projeto2;
  *
  * @author rafaelcosta
  */
-public class CompraIngresso {
+public class IngressoException {
     
 }
