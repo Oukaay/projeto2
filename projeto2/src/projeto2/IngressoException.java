@@ -8,6 +8,10 @@ package projeto2;
  *
  * @author rafaelcosta
  */
-public class IngressoException {
+public class IngressoException extends Exception{
+    public String getMessage() {
+        return "Ingressos Esgotados";
+    }
+    
     
 }

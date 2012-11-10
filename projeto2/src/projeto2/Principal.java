@@ -8,7 +8,6 @@ package projeto2;
 
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,22 +15,25 @@ import java.util.Scanner;
  *
  * @author rafaelcosta
  */
-public class Projeto2 {
+public class Principal {
+
+    private static ClienteController clienteController = new ClienteController();
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
+        
         Integer option = -1;
         
-        List<Usuario> lista = new ArrayList();
+   
         List<Ingresso> filmes = new ArrayList();
         Scanner entrada = new Scanner(System.in) ;
         //Iterator<Cadastro> itr = lista.iterator();
         
-        filmes.add(new Ingresso("Ted", "9h00", 30));
-        filmes.add(new Ingresso("Rambo", "23h00", 30));
+        filmes.add(new Ingresso("Ted", "9h00", 1));
+        filmes.add(new Ingresso("Rambo", "23h00", 2));
         
         
         
@@ -51,9 +53,8 @@ public class Projeto2 {
 			// Trata as opções
 			try {
 				switch ( option ) {
-					case 1: cadastra(lista) ; break ;
-					case 2: mostra(lista) ; break ;
-                                        case 3: compra(filmes) ; break ;
+					case 1: cadastra() ; break ;
+                                        
 				}
 			}
 			catch ( Exception e ) {
@@ -63,18 +64,12 @@ public class Projeto2 {
 		}
         
         
-        
-        
-        
-        
-        //System.out.println(cadastro.get(0).getNome()+"\n"+cadastro.get(0).getCpf()+"\n"+cadastro.get(0).getSenha());
-        
     }
     
-    private static void cadastra(List<Usuario> list){
+    private static void cadastra(){
          
-        Usuario c = new Usuario();
-        String nome, cpf, senha;
+        Cliente c = new Cliente();
+        String nome, cpf;
         Scanner entrada = new Scanner(System.in);
         
         System.out.println("Nome: ");
@@ -85,34 +80,19 @@ public class Projeto2 {
         cpf = entrada.nextLine() ;
         c.setCpf(cpf);
         
-        System.out.println("Senha: ");
-        senha = entrada.nextLine() ;
-        c.setSenha(senha);
-        
-        list.add(c);
+        boolean cadastrou = clienteController.cadastraCliente(c);
+                
+        if (!cadastrou){
+            System.out.println("Cliente ja cadastrado");
         
         }
-    
-    private static void mostra(List<Usuario> list){
-        
-        System.out.println("Lista atual");
-        
-        int i = 0;
-        while(i<list.size()/*itr.hasNext()*/){
-            System.out.print("\nNome: "+list.get(i).getNome());
-            System.out.print("\nCPF: "+list.get(i).getCpf());
-            System.out.print("\nSenha: "+list.get(i).getSenha());
-            System.out.print("\n\n");
-            i++;
-        }
-        
     }
     
-    
-    public static void compra(List<Ingresso> list) {
+    public static void compra(List<Ingresso> list) throws IngressoException{
+        
         System.out.println("Qual filme:\n");
         Scanner entrada = new Scanner(System.in) ;
-        int op;
+        int op; int lugar=0;
         
         int i = 0;
         while(i<list.size()/*itr.hasNext()*/){
@@ -122,8 +102,13 @@ public class Projeto2 {
         
         op = entrada.nextInt() ;
         
+        lugar = list.get(i).getLugar();
+        list.get(i).setLugar(lugar-1);
         
+        System.out.println("Ingresso comprado!");
         
-        
+    
+       
+         
     }
 }
