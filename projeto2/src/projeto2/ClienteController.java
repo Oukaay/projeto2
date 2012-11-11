@@ -20,7 +20,7 @@ public class ClienteController {
         
         boolean cadastrou = false;
         
-        if (!clienteExiste(cliente.getCpf())){
+        if (!clienteExiste(cliente.getCpf())){            
             listaClientes.put(cliente.getCpf(), cliente);
             cadastrou = true;
         } 
@@ -35,6 +35,10 @@ public class ClienteController {
         
        return (Cliente)listaClientes.get(cpf) != null;
         
+    }
+    
+    public Cliente buscaCliente(String cpf){
+        return (Cliente)listaClientes.get(cpf);
     }
     
 }

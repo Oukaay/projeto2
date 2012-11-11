@@ -21,29 +21,29 @@ public class Sessao {
         this.nroLugares = lugar;
     }
 
-    private int getLugar() {
-        return nroLugares;
-    }
-
-    private void setLugar(int lugar) {
-        this.nroLugares = lugar;
-    }
-
     public String getNomeFilme() {
         return nomeFilme;
     }
 
-    private void setNomeFilme(String nomeFilme) {
+    public void setNomeFilme(String nomeFilme) {
         this.nomeFilme = nomeFilme;
     }
 
-    private String getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    private void setHorario(String horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
+
+    public int getNroLugares() {
+        return nroLugares;
+    }
+
+    public void setNroLugares(int nroLugares) {
+        this.nroLugares = nroLugares;
+    }      
     
     public boolean compraIngresso(){
         
